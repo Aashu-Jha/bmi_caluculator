@@ -17,6 +17,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
             child: Row(
@@ -50,7 +52,40 @@ class _InputPageState extends State<InputPage> {
               ],
             )
           ),
-          Expanded(child: ReusableCard(cardColor: kActiveCardColor)),
+          Expanded(child: ReusableCard(
+              cardColor: kActiveCardColor,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'HEIGHT',
+                    style: kLabelTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    textBaseline: TextBaseline.ideographic,
+                    children: <Widget>[
+                      Text(
+                        height.toString(),
+                        style: kBoldTextStyle,
+                      ),
+                      Text('cm'),
+                    ],
+                  ),
+                  Slider(
+                      value: height.toDouble(),
+                      min: 100.0,
+                      max: 300.0,
+                      activeColor: Color(0xffEB1555),
+                      inactiveColor: Color(0xff8D8E98),
+                      onChanged: (double newValue) {
+                        setState(() {
+                          height = newValue.round();
+                        });
+                      },
+                  ),
+                ],
+              ),)),
           Expanded(
             child: Row(
               children: [

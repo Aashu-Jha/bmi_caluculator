@@ -19,7 +19,7 @@ class IconContent extends StatelessWidget {
         SizedBox(height: 15.0,),
         Text(
           label,
-          style: labelTextStyle,
+          style: kLabelTextStyle,
         ),
       ],
     );
