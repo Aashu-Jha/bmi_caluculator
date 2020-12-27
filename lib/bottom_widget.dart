@@ -3,7 +3,7 @@ import 'constants.dart';
 
 class BottomWidget extends StatelessWidget {
 
-  BottomWidget({@required this.onTap, this.title});
+  BottomWidget({@required this.onTap,@required this.title});
   final Function onTap;
   final String title;
 
