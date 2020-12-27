@@ -70,7 +70,7 @@ class _InputPageState extends State<InputPage> {
                     children: <Widget>[
                       Text(
                         height.toString(),
-                        style: kBoldTextStyle,
+                        style: kNumberStyle,
                       ),
                       Text('cm'),
                     ],
@@ -108,7 +108,7 @@ class _InputPageState extends State<InputPage> {
                         children: [
                           Text('WEIGHT'),
                           Text(weight.toString(),
-                            style: kBoldTextStyle,
+                            style: kNumberStyle,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -139,7 +139,7 @@ class _InputPageState extends State<InputPage> {
                         children: [
                           Text('AGE'),
                           Text(age.toString(),
-                            style: kBoldTextStyle,
+                            style: kNumberStyle,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -170,7 +170,8 @@ class _InputPageState extends State<InputPage> {
               Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage()));
             },
             child: Container(
-              child: Text('CALCULATE'),
+              padding: EdgeInsets.only(bottom: 25.0),
+              child: Center(child: Text('CALCULATE', style: kBoldTextStyle,)),
               color: kBottomContainerColor,
               margin: EdgeInsets.only(top: 10.0),
               height: kBottomContainerHeight,

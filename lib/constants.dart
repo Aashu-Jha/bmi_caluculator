@@ -10,7 +10,12 @@ const kLabelTextStyle = TextStyle(
   color: Color(0xff8D8E98),
 );
 
-const kBoldTextStyle = TextStyle(
+const kNumberStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
+);
+
+const kBoldTextStyle = TextStyle(
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
 );
