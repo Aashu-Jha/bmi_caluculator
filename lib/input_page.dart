@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
@@ -17,7 +18,9 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
-  int height = 180;
+  int height = 140;
+  int weight = 40;
+  int age = 12;
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +87,7 @@ class _InputPageState extends State<InputPage> {
                     child: Slider(
                         value: height.toDouble(),
                         min: 100.0,
-                        max: 300.0,
+                        max: 250.0,
                         onChanged: (double newValue) {
                           setState(() {
                             height = newValue.round();
@@ -97,18 +100,105 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(
               children: [
-                Expanded(child: ReusableCard(cardColor: kActiveCardColor)),
-                Expanded(child: ReusableCard(cardColor: kActiveCardColor)),
+                Expanded(
+                    child: ReusableCard(
+                        cardColor: kActiveCardColor,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('WEIGHT'),
+                          Text(weight.toString(),
+                            style: kBoldTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              RoundIconButton(icon: FontAwesomeIcons.minus,
+                              onPress: () {
+                                setState(() {
+                                  weight = weight - 2;
+                                });
+                              },),
+                              SizedBox(width: 10.0,),
+                              RoundIconButton(icon: FontAwesomeIcons.plus,
+                                onPress: () {
+                                  setState(() {
+                                    weight = weight + 2;
+                                  });
+                                },),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )),
+                Expanded(
+                    child: ReusableCard(
+                        cardColor: kActiveCardColor,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('AGE'),
+                          Text(age.toString(),
+                            style: kBoldTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              RoundIconButton(icon: FontAwesomeIcons.minus,
+                                onPress: () {
+                                  setState(() {
+                                      --age;
+                                  });
+                                },),
+                              SizedBox(width: 10.0,),
+                              RoundIconButton(icon: FontAwesomeIcons.plus,
+                                onPress: () {
+                                  setState(() {
+                                      ++age;
+                                  });
+                                },),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )),
               ],
             )
           ),
-          Container(
-            color: kBottomContainerColor,
-            margin: EdgeInsets.only(top: 10.0),
-            height: kBottomContainerHeight,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage()));
+            },
+            child: Container(
+              child: Text('CALCULATE'),
+              color: kBottomContainerColor,
+              margin: EdgeInsets.only(top: 10.0),
+              height: kBottomContainerHeight,
+            ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  RoundIconButton({this.icon, @required this.onPress});
+  final IconData icon;
+  final Function onPress;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onPress,
+      elevation: 5.0,
+      child: Icon(icon),
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      shape: CircleBorder(),
+      fillColor: Color(0xff4C4F5E),
     );
   }
 }
