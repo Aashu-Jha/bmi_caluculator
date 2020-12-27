@@ -15,7 +15,28 @@ const kNumberStyle = TextStyle(
   fontWeight: FontWeight.w900,
 );
 
+const kResultNumberStyle = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.w900,
+);
+
 const kBoldTextStyle = TextStyle(
   fontSize: 25.0,
   fontWeight: FontWeight.bold,
+);
+
+const kTitleTextStyle = TextStyle(
+  fontSize: 40.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kResultTextStyle = TextStyle(
+  color: Color(0xff24d876),
+  fontSize: 25.0,
+  fontWeight: FontWeight.w700,
+);
+
+const kMessageTextStyle = TextStyle(
+  fontSize: 20.0,
+  fontWeight: FontWeight.w400,
 );
