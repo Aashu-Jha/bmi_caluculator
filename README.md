@@ -1,6 +1,8 @@
-#BMI Calculator 💪
+# BMI Calculator 💪
 
-##What i created
+
+
+## What i created
 
 
 I made a Body Mass Index Calculator inspired by the beautiful designs made by Ruben Vaalt. It is a multi screen app with simple functionality but full-on custom styling.
